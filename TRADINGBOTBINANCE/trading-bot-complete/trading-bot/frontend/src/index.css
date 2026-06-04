@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+
+  body {
+    background-color: #f1f5f9;
+    color: #0f172a;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: #f1f5f9; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+}
+
+@layer components {
+  .card {
+    @apply bg-white border border-slate-200 rounded-xl p-5 shadow-card;
+  }
+
+  .btn-primary {
+    @apply bg-emerald-600 text-white font-display font-semibold px-6 py-2.5 rounded-lg
+           shadow-sm transition-all duration-150
+           hover:bg-emerald-700 hover:shadow active:scale-[0.98]
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .btn-danger {
+    @apply bg-rose-600 text-white font-display font-semibold px-6 py-2.5 rounded-lg
+           shadow-sm transition-all duration-150
+           hover:bg-rose-700 hover:shadow active:scale-[0.98]
+           disabled:opacity-40 disabled:cursor-not-allowed;
+  }
+
+  .input {
+    @apply w-full bg-white border border-slate-200 rounded-lg px-3 py-2.5
+           text-sm font-display text-slate-900 placeholder-slate-400
+           focus:outline-none focus:border-indigo-400 focus:ring-2 focus:ring-indigo-100
+           shadow-sm transition-colors;
+  }
+
+  .label {
+    @apply block text-xs font-display text-slate-500 uppercase tracking-widest mb-1.5;
+  }
+
+  .badge-filled   { @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-display font-medium bg-emerald-50  text-emerald-700 border border-emerald-200; }
+  .badge-new      { @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-display font-medium bg-sky-50     text-sky-700     border border-sky-200;     }
+  .badge-canceled { @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-display font-medium bg-slate-100  text-slate-500   border border-slate-200;  }
+  .badge-rejected { @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-display font-medium bg-rose-50    text-rose-600    border border-rose-200;   }
+  .badge-partial  { @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-display font-medium bg-amber-50   text-amber-700   border border-amber-200;  }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fadeUp 0.3s ease both; }
+
+@keyframes flash {
+  0%   { color: #059669; }
+  100% { color: inherit; }
+}
+.flash { animation: flash 0.4s ease; }
